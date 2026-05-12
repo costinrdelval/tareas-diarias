@@ -6,6 +6,6 @@ Aplicacion web estatica para convertir tareas desordenadas en un plan diario rea
 
 Abre la app, pega tus tareas, ajusta energia y horas disponibles, y pulsa **Crear plan del dia**.
 
-Cuando GitHub Pages termine de publicar, la app estara disponible en:
+La app esta publicada con GitHub Pages desde la rama `gh-pages`:
 
 https://costinrdelval.github.io/tareas-diarias/
