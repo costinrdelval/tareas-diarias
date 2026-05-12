@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Director de Jornada Inteligente</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="planner">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Planificador diario</p>
+            <h1>Director de Jornada Inteligent COSTIN</h1>
+          </div>
+          <button class="ghost-button" id="loadExample" type="button">Ejemplo</button>
+        </header>
+
+        <section class="input-panel" aria-label="Datos del día">
+          <div class="field-group">
+            <label for="tasks">Tareas desordenadas</label>
+            <textarea
+              id="tasks"
+              placeholder="Ej: enviar propuesta al cliente antes de las 12, pagar factura, llamar al dentista, avanzar el informe, ordenar escritorio..."
+            ></textarea>
+          </div>
+
+          <div class="controls-grid">
+            <label>
+              Energía
+              <select id="energy">
+                <option value="media">Media</option>
+                <option value="alta">Alta</option>
+                <option value="baja">Baja</option>
+              </select>
+            </label>
+            <label>
+              Horas disponibles
+              <input id="hours" type="number" min="1" max="14" step="0.5" value="7" />
+            </label>
+            <label>
+              Fin deseado
+              <input id="finish" type="time" value="18:30" />
+            </label>
+          </div>
+
+          <button class="primary-button" id="generate" type="button">Crear plan del día</button>
+        </section>
+      </section>
+
+      <section class="results" aria-live="polite">
+        <div class="empty-state" id="emptyState">
+          <h2>Tu jornada aparecerá aquí</h2>
+          <p>Pega tareas sueltas y te devuelvo prioridades, bloques de trabajo y una primera acción clara.</p>
+        </div>
+
+        <div class="plan hidden" id="plan">
+          <section class="summary-band">
+            <div>
+              <p class="eyebrow">Plan del día</p>
+              <h2 id="dayVerdict">Jornada equilibrada</h2>
+            </div>
+            <div class="focus-pill" id="focusPill">Enfoque: impacto primero</div>
+          </section>
+
+          <div class="section-grid">
+            <article>
+              <h3>Urgente e importante</h3>
+              <ul id="urgentList"></ul>
+            </article>
+            <article>
+              <h3>Importante pero no urgente</h3>
+              <ul id="importantList"></ul>
+            </article>
+            <article>
+              <h3>Rápido (&lt;10 min)</h3>
+              <ul id="quickList"></ul>
+            </article>
+            <article>
+              <h3>Evitable o delegable</h3>
+              <ul id="dropList"></ul>
+            </article>
+          </div>
+
+          <section class="energy-map">
+            <h3>Energía alta / energía baja</h3>
+            <div class="energy-columns">
+              <div>
+                <p>Energía alta</p>
+                <ul id="highEnergyList"></ul>
+              </div>
+              <div>
+                <p>Energía baja</p>
+                <ul id="lowEnergyList"></ul>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h3>Bloques de trabajo</h3>
+            <div class="blocks" id="blocks"></div>
+          </section>
+
+          <section class="recommendation">
+            <h3>Recomendación de enfoque</h3>
+            <p id="recommendationText"></p>
+          </section>
+
+          <section class="closing-grid">
+            <div class="first-step">
+              <h3>Tu primer paso ahora mismo</h3>
+              <p id="firstStep"></p>
+            </div>
+            <div>
+              <h3>Lo que puedes ignorar hoy sin problema</h3>
+              <ul id="ignoreToday"></ul>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
